@@ -61,7 +61,7 @@ public class room {
 		FileReader file = new FileReader(this.file);
 		sc = new Scanner(file);
 		int y = 0;
-
+ 
 		while(sc.hasNextLine()) {
 			String row = sc.nextLine().trim();
 			int x = 0;
