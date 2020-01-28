@@ -1,3 +1,5 @@
+package pillsite.controller.view;
+
 import javafx.application.Platform;
 import javafx.event.*;
 import javafx.fxml.*;

@@ -1,4 +1,7 @@
+package pillsite.controller.view;
+
 import javafx.stage.Stage;
+import pillsite.controller.model.maps.room;
 
 public class roomSelect {
 	private Stage currentStage;

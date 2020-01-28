@@ -1,3 +1,5 @@
+package pillsite.controller.model.maps;
+
 import java.awt.event.*;  
 import java.io.File;
 import java.io.FileNotFoundException;
