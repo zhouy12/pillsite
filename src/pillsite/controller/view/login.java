@@ -18,7 +18,7 @@ public class login  {
 	Stage storyStage;
 
 	@FXML
-	public void handleStartButton(ActionEvent event) throws Exception {
+	public void handleLoginButton(ActionEvent event) throws Exception {
 		storyStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		roomSelect select = new roomSelect();
 		try {
@@ -29,7 +29,31 @@ public class login  {
 	}
  
 	@FXML
-	public void handleStartOnKeyPressed(KeyEvent event) throws IOException {
+	public void handleLoginOnKeyPressed(KeyEvent event) throws IOException {
+		if (event.getCode() == KeyCode.ENTER) {
+			storyStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+			roomSelect select = new roomSelect();
+			try {
+				select.selectRoom(storyStage);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	@FXML
+	public void handleRegisterButton(ActionEvent event) throws Exception {
+		storyStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		roomSelect select = new roomSelect();
+		try {
+			select.selectRoom(storyStage);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+ 
+	@FXML
+	public void handleRegisterOnKeyPressed(KeyEvent event) throws IOException {
 		if (event.getCode() == KeyCode.ENTER) {
 			storyStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 			roomSelect select = new roomSelect();
