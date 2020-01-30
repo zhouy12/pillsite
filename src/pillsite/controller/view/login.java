@@ -8,6 +8,8 @@ import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.input.*;
 import javafx.stage.*;
+import pillsite.DatabaseConnectionService;
+import pillsite.LoginService;
 
 import java.io.IOException;
 import java.util.Optional;
@@ -15,54 +17,27 @@ import java.util.Optional;
 
 public class login  {
 
-	Stage storyStage;
+//	DatabaseConnectionService dbService = "jdbc:sqlserver://"+ +";databaseName="+this.databaseName+";user="+user+";password="+pass;
+
 
 	@FXML
 	public void handleLoginButton(ActionEvent event) throws Exception {
-		storyStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-		roomSelect select = new roomSelect();
-		try {
-			select.selectRoom(storyStage);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+//		LoginService ls = new LoginService(DatabaseConnectionService dbService);
 	}
  
 	@FXML
 	public void handleLoginOnKeyPressed(KeyEvent event) throws IOException {
-		if (event.getCode() == KeyCode.ENTER) {
-			storyStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-			roomSelect select = new roomSelect();
-			try {
-				select.selectRoom(storyStage);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
+		
 	}
 	
 	@FXML
 	public void handleRegisterButton(ActionEvent event) throws Exception {
-		storyStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-		roomSelect select = new roomSelect();
-		try {
-			select.selectRoom(storyStage);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		
 	}
  
 	@FXML
 	public void handleRegisterOnKeyPressed(KeyEvent event) throws IOException {
-		if (event.getCode() == KeyCode.ENTER) {
-			storyStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-			roomSelect select = new roomSelect();
-			try {
-				select.selectRoom(storyStage);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
+		
 	}
 
 	@FXML
