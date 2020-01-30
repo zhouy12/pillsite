@@ -36,7 +36,7 @@
             	<Image url="@../../../images/pillmage.png" />
          	</image>
         </ImageView>
-        <TextField id="Username" fx:id="Username" layoutX="360" layoutY="360" prefHeight="30.0" prefWidth="293.0"/>
+        <TextField id="Username" fx:id="Username" layoutX="360" layoutY="360" prefHeight="30.0" prefWidth="293.0" onAction="#HandleLoginButton promptText="Username"/>
         <PasswordField id="Password" fx:id="Password" layoutX="360" layoutY="400" prefHeight="30.0" prefWidth="293.0"/>
         
         <Button layoutX="350.0" layoutY="460" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleLoginButton" prefHeight="30.0" prefWidth="147.5" text="Login">
