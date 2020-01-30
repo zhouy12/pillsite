@@ -10,6 +10,8 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
+    	//Connect to database
+    	
         // Set title
         primaryStage.setTitle("PillSite");
 
