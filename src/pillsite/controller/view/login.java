@@ -21,39 +21,15 @@ import javax.swing.JOptionPane;
 import pillsite.DatabaseConnectionService;
 
 	public class login  {
-	DatabaseConnectionService dbService = null;
+
 	@FXML private TextField Username;
-//	DatabaseConnectionService dbService = "jdbc:sqlserver://"+ +";databaseName="+this.databaseName+";user="+user+";password="+pass;
-	public login(DatabaseConnectionService dbService) {
-		this.dbService = dbService;
-	}
+	@FXML private TextField Password;
+
 
 	@FXML
 	public void handleLoginButton(ActionEvent event) throws Exception {
 		System.out.println(Username.getText());
-//		LoginService ls = new LoginService(DatabaseConnectionService dbService);
-//		try {
-//			CallableStatement stmt = null;
-//			if(username !=null && password !=null && !username.isEmpty() && !password.isEmpty()) {
-//			stmt = dbService.getConnection().prepareCall("{call Register(?,?,?)}");
-//			byte[] salt = this.getNewSalt();
-//			String hash = this.hashPassword(salt, password);
-//			stmt.setString(1, username);
-//			stmt.setBytes(2, salt);
-//			stmt.setString(3, hash);
-//			stmt.execute();
-//			return true;
-//			}
-//			else {
-//				JOptionPane.showMessageDialog(null, "password and username cannot be null.");
-//				return false;
-//			}
-//			
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//			JOptionPane.showMessageDialog(null, "register not implemented.");
-//			return false;
-//		}
+		System.out.println(Password.getText());
 	}
  
 	@FXML
