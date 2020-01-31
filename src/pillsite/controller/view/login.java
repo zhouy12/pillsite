@@ -1,6 +1,6 @@
 package pillsite.controller.view;
 
-import javafx.application.Platform; 
+import javafx.application.Platform;  
 import javafx.event.*;
 import javafx.fxml.*;
 import javafx.scene.*;
@@ -11,8 +11,6 @@ import javafx.stage.*;
 import pillsite.DatabaseConnectionService;
 import pillsite.LoginService;
 import pillsite.Main;
-import pillsite.controller.model.maps.room;
-
 import java.io.IOException;
 import java.sql.CallableStatement;
 import java.sql.SQLException;
@@ -33,13 +31,12 @@ import pillsite.DatabaseConnectionService;
 		storyStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		System.out.println(Username.getText());
 		System.out.println(Password.getText());
-		FXMLLoader loader = new FXMLLoader();
- 		loader.setLocation(getClass().getResource("MainMenu.fxml"));
-	 	Parent root = loader.load();
- 		Scene scene = new Scene(root);
- 		storyStage.setScene(scene);
- 		storyStage.setResizable(false); 
- 		storyStage.show();
+		Node node=(Node) event.getSource();
+		Stage stage=(Stage) node.getScene().getWindow();
+		Parent root = FXMLLoader.load(getClass().getResource("ListTest.fxml"));
+		Scene scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show();
 	}
  
 	@FXML

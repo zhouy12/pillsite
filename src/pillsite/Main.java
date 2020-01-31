@@ -1,5 +1,9 @@
 package pillsite;
 
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+
 import javafx.application.Application; 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -7,10 +11,26 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class Main extends Application {
+    private static DatabaseConnectionService dcs = new DatabaseConnectionService("golem.csse.rose-hulman.edu", "PillSite");
+    boolean connect = getDcs().connect("zhouy12", "zyjZYJ88");
 
     @Override
     public void start(Stage primaryStage) throws Exception{
     	//Connect to database
+    	System.out.println(connect);
+        getDcs().getConnection();
+        
+        //Test
+        Statement stmt = null;	
+	    ArrayList<String> restaurants = new ArrayList<>();
+	    String query = "SELECT * FROM [PillSite].[dbo].[Pill]";
+	    stmt = dcs.getConnection().createStatement();
+	    ResultSet rs = stmt.executeQuery(query);
+	    while (rs.next()) {
+	        String name = rs.getString("PillName");
+	        System.out.println(name);
+	        restaurants.add(name);
+	    }
     	
         // Set title
         primaryStage.setTitle("PillSite");
@@ -27,9 +47,16 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
-        DatabaseConnectionService dcs = new DatabaseConnectionService("golem.csse.rose-hulman.edu", "PillSite");
-        System.out.println(dcs.connect("zhouy12", "zyjZYJ88"));
-        dcs.getConnection();
         launch(args);
     }
+
+
+	public static DatabaseConnectionService getDcs() {
+		return dcs;
+	}
+
+
+	public void setDcs(DatabaseConnectionService dcs) {
+		Main.dcs = dcs;
+	}
 }

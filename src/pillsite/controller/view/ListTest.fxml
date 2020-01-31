@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+
+<AnchorPane prefHeight="650" prefWidth="1000" style="-fx-background-color: #faf4e3" fx:controller="pillsite.controller.view.ListTest" xmlns:fx="http://javafx.com/fxml">
+<children>
+    <TableView fx:id="tableView" layoutX="120.0" layoutY="25" prefHeight="600.0" prefWidth="760.0">
+    <columns>
+        <TableColumn prefWidth="250.0" text="Pill Name" fx:id="Pill" />
+        <TableColumn prefWidth="250.0" text="Pill ID" fx:id="Id" />
+        <TableColumn prefWidth="250.0" text="Type" fx:id="Type" />
+    </columns>
+    </TableView>
+</children>
+</AnchorPane>
