@@ -27,9 +27,9 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
-//        launch(args);
         DatabaseConnectionService dcs = new DatabaseConnectionService("golem.csse.rose-hulman.edu", "PillSite");
-        System.out.println(dcs.connect("linj3", ""));
+        System.out.println(dcs.connect("zhouy12", "zyjZYJ88"));
         dcs.getConnection();
+        launch(args);
     }
 }
