@@ -17,7 +17,7 @@ public class Main extends Application {
 
         // This creates the Intro
      		FXMLLoader loader = new FXMLLoader();
-     		loader.setLocation(Main.class.getResource("controller/view/Login.fxml"));
+     		loader.setLocation(getClass().getResource("controller/view/Login.fxml"));
      		Parent root = loader.load();
      		Scene scene = new Scene(root);
      		primaryStage.setScene(scene);

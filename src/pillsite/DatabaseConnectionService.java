@@ -16,7 +16,7 @@ public class DatabaseConnectionService {
 		}
 
 		public boolean connect(String user, String pass) {
-			String connectionUrl ="jdbc:sqlserver://golem.csse.rose-hulman.edu;databaseName=PillSite;user="+user+";password="+pass;
+			String connectionUrl ="jdbc:sqlserver://golem.csse.rose-hulman.edu;databaseName=PillSite;user=PllMan;password=";
 
 	        try {
 	        	connection = DriverManager.getConnection(connectionUrl);
