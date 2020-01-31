@@ -2,5 +2,7 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/Users/zhouy12/Desktop/333/SodaBaseApp/mssql-jdbc-6.2.2.jre8.jar"/>
+	<classpathentry kind="lib" path="C:/Users/zhouy12/Desktop/333/SodaBaseApp/SodaBaseUi.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
