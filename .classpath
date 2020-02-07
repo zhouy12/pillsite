@@ -2,7 +2,7 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="C:/Users/Rachel Zhang/git/pillsite/mssql-jdbc-6.2.2.jre8.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Rachel Zhang/git/pillsite/SodaBaseUi.jar"/>
+	<classpathentry kind="lib" path="C:/Users/zhangrj/git/CSSE333-ConnectivityLab/mssql-jdbc-6.2.2.jre8.jar"/>
+	<classpathentry kind="lib" path="C:/Users/zhangrj/git/CSSE333-ConnectivityLab/SodaBaseUi.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

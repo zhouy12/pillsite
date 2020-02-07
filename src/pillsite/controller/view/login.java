@@ -62,7 +62,7 @@ import pillsite.DatabaseConnectionService;
 	@FXML
 	public void handleLoginButton(ActionEvent event) throws Exception {
 		boolean loog = login(Username.getText(), Password.getText());
-		if(loog == true) {
+		if(loog == true && !Username.getText().isEmpty()) {
 			storyStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 			System.out.println(Username.getText());
 			System.out.println(Password.getText());
