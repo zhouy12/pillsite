@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 public class Main extends Application {
     private static DatabaseConnectionService dcs = new DatabaseConnectionService("golem.csse.rose-hulman.edu", "PillSite");
     boolean connect = getDcs().connect("zhouy12", "zyjZYJ88");
+    private static int Id = 0;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -58,5 +59,14 @@ public class Main extends Application {
 
 	public void setDcs(DatabaseConnectionService dcs) {
 		Main.dcs = dcs;
+	}
+	
+	public static int getID() {
+		return Id;
+	}
+
+
+	public static void setID(int ID) {
+		Main.Id = ID;
 	}
 }

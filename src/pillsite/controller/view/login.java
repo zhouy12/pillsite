@@ -13,6 +13,8 @@ import pillsite.LoginService;
 import pillsite.Main;
 import java.io.IOException;
 import java.sql.CallableStatement;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Optional;
 
@@ -24,34 +26,96 @@ import pillsite.DatabaseConnectionService;
 	@FXML private TextField Username;
 	@FXML private TextField Password;
 	Stage storyStage;
+	
+	public boolean login(String username, String password) {
+		 try {
+	            PreparedStatement stmt = null;
+	            String query = "SELECT Password,ID FROM [PillSite].[dbo].[Person] WHERE UserName = ?";
+	            stmt = Main.getDcs().getConnection().prepareStatement(query);
+	            stmt.setString(1, username);
+	            
+	            ResultSet rs = stmt.executeQuery();
+	            String pword = "";
+	            int iden = 0;
+	            while (rs.next()) {
+	    	        pword  = rs.getString("Password");
+	    	        iden = rs.getInt("ID");
+	    	    }
+	            if(pword.equals(password)) {
+	            	Main.setID(iden);
+	            	return true;
+	            }
+	            JOptionPane.showMessageDialog(null, "Login Failed.");
+	            return false;
+	    	    
+		 }
+	        catch (SQLException ex) {
+	            JOptionPane.showMessageDialog(null, "Login Failed.");
+	            ex.printStackTrace();
+	            return false;
+	        }
+
+	}
+
 
 
 	@FXML
 	public void handleLoginButton(ActionEvent event) throws Exception {
-		storyStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-		System.out.println(Username.getText());
-		System.out.println(Password.getText());
-		Node node=(Node) event.getSource();
-		Stage stage=(Stage) node.getScene().getWindow();
-		Parent root = FXMLLoader.load(getClass().getResource("ListTest.fxml"));
-		Scene scene = new Scene(root);
-		stage.setScene(scene);
-		stage.show();
+		boolean loog = login(Username.getText(), Password.getText());
+		if(loog == true) {
+			storyStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+			System.out.println(Username.getText());
+			System.out.println(Password.getText());
+			Node node=(Node) event.getSource();
+			Stage stage=(Stage) node.getScene().getWindow();
+			Parent root = FXMLLoader.load(getClass().getResource("ListTest.fxml"));
+			Scene scene = new Scene(root);
+			stage.setScene(scene);
+			stage.show();
+		}
 	}
  
 	@FXML
 	public void handleLoginOnKeyPressed(KeyEvent event) throws IOException {
+		if (event.getCode() == KeyCode.ENTER) {
+			storyStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+			System.out.println(Username.getText());
+			System.out.println(Password.getText());
+			Node node=(Node) event.getSource();
+			Stage stage=(Stage) node.getScene().getWindow();
+			Parent root = FXMLLoader.load(getClass().getResource("MainMenu.fxml"));
+			Scene scene = new Scene(root);
+			stage.setScene(scene);
+			stage.show();
+		}
 		
 	}
 	
 	@FXML
 	public void handleRegisterButton(ActionEvent event) throws Exception {
+		storyStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		System.out.println(Username.getText());
+		System.out.println(Password.getText());
+		Node node=(Node) event.getSource();
+		Stage stage=(Stage) node.getScene().getWindow();
+		Parent root = FXMLLoader.load(getClass().getResource("ChooseClass.fxml"));
+		Scene scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show();
 		
 	}
  
 	@FXML
 	public void handleRegisterOnKeyPressed(KeyEvent event) throws IOException {
-		
+		if (event.getCode() == KeyCode.ENTER) {
+			storyStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+			Node node=(Node) event.getSource();
+			Stage stage=(Stage) node.getScene().getWindow();
+			Parent root = FXMLLoader.load(getClass().getResource("ChooseClass.fxml"));
+			Scene scene = new Scene(root);
+			stage.setScene(scene);
+			stage.show();
+		}
 	}
 
 	@FXML

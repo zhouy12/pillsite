@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: #faf4e3" prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pillsite.controller.view.ChooseClass">
+   <children>
+      <Button layoutX="225.0" layoutY="307.0" mnemonicParsing="false" onAction="#handleDoctorButton" onKeyPressed="#handleDoctorOnKeyPressed" prefHeight="100.0" prefWidth="200.0" text="Doctor">
+         <font>
+            <Font name="Georgia" size="34.0" />
+         </font>
+      </Button>
+      <Button layoutX="575.0" layoutY="307.0" mnemonicParsing="false" onAction="#handlePatientButton" onKeyPressed="#handlePatientOnKeyPressed" prefHeight="100.0" prefWidth="200.0" text="Patient">
+         <font>
+            <Font name="Georgia" size="34.0" />
+         </font>
+      </Button>
+      <Button layoutX="417.0" layoutY="466.0" mnemonicParsing="false" onAction="#handleGobackButton" onKeyPressed="#handleGobackKeyPressed" prefHeight="39.0" prefWidth="167.0" text="Go back">
+         <font>
+            <Font name="Georgia" size="20.0" />
+         </font>
+      </Button>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Text layoutX="343.0" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Are you a:" wrappingWidth="313.13671875">
+         <font>
+            <Font name="Georgia Bold" size="59.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

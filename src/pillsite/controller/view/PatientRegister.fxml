@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1000.0" style="-fx-background-color: #faf4e3" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pillsite.controller.view.PatientRegister">
+   <children>
+      <Text layoutX="341.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name:" wrappingWidth="108.13671875">
+         <font>
+            <Font name="Georgia" size="20.0" />
+         </font>
+      </Text>
+      <TextField fx:id="fname" layoutX="459.0" layoutY="165.0" prefHeight="25.0" prefWidth="176.0" />
+      <Text layoutX="343.0" layoutY="264.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name:" wrappingWidth="108.13671875">
+         <font>
+            <Font name="Georgia" size="20.0" />
+         </font>
+      </Text>
+      <TextField fx:id="lname" layoutX="459.0" layoutY="245.0" prefHeight="25.0" prefWidth="176.0" />
+      <Text layoutX="351.0" layoutY="305.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username:" wrappingWidth="108.13671875">
+         <font>
+            <Font name="Georgia" size="20.0" />
+         </font>
+      </Text>
+      <TextField fx:id="uname" layoutX="459.0" layoutY="285.0" prefHeight="25.0" prefWidth="176.0" />
+      <Text layoutX="356.0" layoutY="345.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" wrappingWidth="102.13671875">
+         <font>
+            <Font name="Georgia" size="20.0" />
+         </font>
+      </Text>
+      <PasswordField fx:id="pword" layoutX="459.0" layoutY="325.0" prefHeight="25.0" prefWidth="176.0" />
+      <Text layoutX="290.0" layoutY="385.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Retype Password:" wrappingWidth="162.0000000000001">
+         <font>
+            <Font name="Georgia" size="20.0" />
+         </font>
+      </Text>
+      <PasswordField fx:id="pword2" layoutX="459.0" layoutY="365.0" prefHeight="25.0" prefWidth="176.0" />
+      <Text layoutX="405.0" layoutY="425.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SSN:" wrappingWidth="55.13671875">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <PasswordField fx:id="ssn" layoutX="459.0" layoutY="405.0" prefHeight="25.0" prefWidth="176.0" />
+      <Text layoutX="412.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Patient" wrappingWidth="176.13671875">
+         <font>
+            <Font size="50.0" />
+         </font>
+      </Text>
+      <Button layoutX="388.0" layoutY="493.0" mnemonicParsing="false" onAction="#handleFinishButton" onKeyPressed="#handleFinishOnKeyPressed" prefHeight="37.0" prefWidth="224.0" text="Finish">
+         <font>
+            <Font name="Georgia" size="20.0" />
+         </font>
+      </Button>
+      <Button layoutX="388.0" layoutY="542.0" mnemonicParsing="false" onAction="#handleGobackButton" onKeyPressed="#handleGobackKeyPressed" prefHeight="37.0" prefWidth="224.0" text="Go back">
+         <font>
+            <Font name="Georgia" size="20.0" />
+         </font>
+      </Button>
+      <Text layoutX="405.0" layoutY="465.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Age:" wrappingWidth="55.13671875">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <TextField fx:id="age" layoutX="459.0" layoutY="445.0" prefHeight="25.0" prefWidth="176.0" />
+      <Text layoutX="320.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Middle Name:" wrappingWidth="128.936767578125">
+         <font>
+            <Font name="Georgia" size="20.0" />
+         </font>
+      </Text>
+      <TextField fx:id="mname" layoutX="459.0" layoutY="205.0" prefHeight="25.0" prefWidth="176.0" />
+   </children>
+</AnchorPane>
