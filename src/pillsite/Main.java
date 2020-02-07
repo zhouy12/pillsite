@@ -20,18 +20,18 @@ public class Main extends Application {
     	//Connect to database
     	System.out.println(connect);
         getDcs().getConnection();
-        
-        //Test
-        Statement stmt = null;	
-	    ArrayList<String> restaurants = new ArrayList<>();
-	    String query = "SELECT * FROM [PillSite].[dbo].[Pill]";
-	    stmt = dcs.getConnection().createStatement();
-	    ResultSet rs = stmt.executeQuery(query);
-	    while (rs.next()) {
-	        String name = rs.getString("PillName");
-	        System.out.println(name);
-	        restaurants.add(name);
-	    }
+//        
+//        //Test
+//        Statement stmt = null;	
+//	    ArrayList<String> restaurants = new ArrayList<>();
+//	    String query = "SELECT * FROM [PillSite].[dbo].[Pill]";
+//	    stmt = dcs.getConnection().createStatement();
+//	    ResultSet rs = stmt.executeQuery(query);
+//	    while (rs.next()) {
+//	        String name = rs.getString("PillName");
+//	        System.out.println(name);
+//	        restaurants.add(name);
+//	    }
     	
         // Set title
         primaryStage.setTitle("PillSite");
