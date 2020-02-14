@@ -68,7 +68,7 @@ import pillsite.DatabaseConnectionService;
 			System.out.println(Password.getText());
 			Node node=(Node) event.getSource();
 			Stage stage=(Stage) node.getScene().getWindow();
-			Parent root = FXMLLoader.load(getClass().getResource("ListTest.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("MainMenu.fxml"));
 			Scene scene = new Scene(root);
 			stage.setScene(scene);
 			stage.show();

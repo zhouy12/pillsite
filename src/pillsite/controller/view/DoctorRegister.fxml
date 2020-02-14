@@ -56,23 +56,23 @@
             <Font name="Georgia" size="20.0" />
          </font>
       </Button>
-      <Text layoutX="361.0" layoutY="425.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Specialty:" wrappingWidth="91.00000000000011">
+      <Text layoutX="366.0" layoutY="425.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hospital:" wrappingWidth="91.00000000000011">
          <font>
             <Font name="Georgia" size="20.0" />
          </font>
       </Text>
-      <SplitMenuButton fx:id="speciality" layoutX="459.0" layoutY="405.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="191.0" text="No Specialty">
+      <SplitMenuButton fx:id="hospital" layoutX="459.0" layoutY="405.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="191.0" text="No Hospital">
         <items>
           <MenuItem mnemonicParsing="false" text="Action 1" />
           <MenuItem mnemonicParsing="false" text="Action 2" />
         </items>
       </SplitMenuButton>
-      <Text layoutX="366.0" layoutY="465.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hospital:" wrappingWidth="91.00000000000011">
+      <Text layoutX="334.0" layoutY="465.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Department:" wrappingWidth="123.00000000000011">
          <font>
             <Font name="Georgia" size="20.0" />
          </font>
       </Text>
-      <SplitMenuButton fx:id="hospital" layoutX="459.0" layoutY="445.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="191.0" text="No Hospital">
+      <SplitMenuButton fx:id="department" layoutX="459.0" layoutY="445.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="191.0" text="No Department">
          <items>
             <MenuItem mnemonicParsing="false" text="Action 1" />
             <MenuItem mnemonicParsing="false" text="Action 2" />
