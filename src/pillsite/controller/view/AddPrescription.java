@@ -14,6 +14,7 @@ import javafx.stage.*;
 import pillsite.DatabaseConnectionService;
 import pillsite.LoginService;
 import pillsite.Main;
+import pillsite.controller.model.maps.Patients;
 import pillsite.controller.model.maps.Pills;
 
 import java.io.IOException;
@@ -24,29 +25,39 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Optional;
+import java.util.Random;
 import java.util.ResourceBundle;
 
 import javax.swing.JOptionPane;
 import pillsite.DatabaseConnectionService;
 
-	public class AddNew implements Initializable {
+	public class AddPrescription implements Initializable {
 		@FXML private TextField SN;
 		@FXML private TextField Number;
 		@FXML private TextField Dosage;
 		@FXML private TextField TPD;
+		@FXML private TextField PatientID;
 		Stage storyStage;
 
 	 	@FXML private TableView<Pills> RefTable;
 	    @FXML private TableColumn<Pills, String> PName;
 	    @FXML private TableColumn<Pills, String> SerN;
 	    
+	 	@FXML private TableView<Patients> PTable;
+	    @FXML private TableColumn<Patients, String> FName;
+	    @FXML private TableColumn<Patients, String> LName;
+	    @FXML private TableColumn<Patients, String> ID;
+	    
 	    final ObservableList<Pills> data = FXCollections.observableArrayList(
+	    	    );
+	    final ObservableList<Patients> data2 = FXCollections.observableArrayList(
 	    	    );
 
 	    @Override
 	    public void initialize(URL location, ResourceBundle resources) {
 	    	try {
 				addPills();
+				addYourPatients();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -56,6 +67,13 @@ import pillsite.DatabaseConnectionService;
 	    	
 	    	RefTable.setItems(data);
 	    	RefTable.getColumns().addAll(PName, SerN);
+	    	
+	    	FName.setCellValueFactory(new PropertyValueFactory<Patients, String>("Fname"));
+	    	LName.setCellValueFactory(new PropertyValueFactory<Patients, String>("Lname"));
+	    	ID.setCellValueFactory(new PropertyValueFactory<Patients, String>("ID"));
+	    	
+	    	PTable.setItems(data2);
+	    	PTable.getColumns().addAll(FName, LName, ID);
 	    }
 	    
 	    public static boolean isInteger(String str) {
@@ -90,6 +108,71 @@ import pillsite.DatabaseConnectionService;
 	    		data.add(new Pills(names.get(i), ids.get(i), types.get(i)));
 	    	}
 	    }
+	    
+	    private void addYourPatients() throws SQLException {
+	    	ArrayList<String> fName = getPatientFName();
+	    	ArrayList<String> lName = getPatientLName();
+	    	ArrayList<String> ID = getPatientID();
+		    Statement stmt = null;	
+		    ArrayList<String> names = new ArrayList<>();
+		    String query = "SELECT PatientID FROM [PillSite].[dbo].[Belongs] JOIN [PillSite].[dbo].[Patient] ON "
+		    		+ " [PillSite].[dbo].[Belongs].PatientID = [PillSite].[dbo].[Patient].ID WHERE DoctorID = " + Main.getID();
+		    stmt = Main.getDcs().getConnection().createStatement();
+		    ResultSet rs = stmt.executeQuery(query);
+		    while (rs.next()) {
+		        String name = rs.getString("PatientID");
+		        names.add(name);
+		    }
+	    	for(int i = 0; i < ID.size(); i++){
+	    		if(names.contains(ID.get(i))) {
+	    			data2.add(new Patients(fName.get(i), lName.get(i), ID.get(i)));
+	    		}
+	    	}
+	    }
+	    
+		public ArrayList<String> getPatientFName() throws SQLException {	
+		    Statement stmt = null;	
+		    ArrayList<String> id = new ArrayList<>();
+		    String query = "SELECT FName FROM [PillSite].[dbo].[Patient] JOIN [PillSite].[dbo].[Person] ON "
+		    		+ "[PillSite].[dbo].[Patient].ID = [PillSite].[dbo].[Person].ID";
+		    stmt = Main.getDcs().getConnection().createStatement();
+		    ResultSet rs = stmt.executeQuery(query);
+		    while (rs.next()) {
+		        String name = rs.getString("FName");
+		        id.add(name);
+		    }
+		    return id;
+		}
+		
+		public ArrayList<String> getPatientLName() throws SQLException {	
+		    Statement stmt = null;	
+		    ArrayList<String> id = new ArrayList<>();
+		    String query = "SELECT LName FROM [PillSite].[dbo].[Patient] JOIN [PillSite].[dbo].[Person] ON "
+		    		+ "[PillSite].[dbo].[Patient].ID = [PillSite].[dbo].[Person].ID";
+		    stmt = Main.getDcs().getConnection().createStatement();
+		    ResultSet rs = stmt.executeQuery(query);
+		    while (rs.next()) {
+		        String name = rs.getString("LName");
+		        id.add(name);
+		    }
+		    return id;
+		}
+		
+		
+		public ArrayList<String> getPatientID() throws SQLException {	
+		    Statement stmt = null;	
+		    ArrayList<String> id = new ArrayList<>();
+		    String query = "SELECT ID FROM [PillSite].[dbo].[Patient]";
+		    stmt = Main.getDcs().getConnection().createStatement();
+		    ResultSet rs = stmt.executeQuery(query);
+		    while (rs.next()) {
+		        String name = rs.getString("ID");
+		        id.add(name);
+		    }
+		    return id;
+		}
+		
+	
 	    
 		public ArrayList<String> getPillName() throws SQLException {	
 		    Statement stmt = null;	
@@ -143,16 +226,18 @@ import pillsite.DatabaseConnectionService;
 			String number = Number.getText();
 			String dosage = Dosage.getText();
 			String TimePD = TPD.getText();
+			String patient = PatientID.getText();
 
 
 			if(list.contains(SerialNumber) && isInteger(number) && isInteger(dosage) && isInteger(TimePD)) {
-				cs = Main.getDcs().getConnection().prepareCall("{call [PillSite].[dbo].addtake(?,?,?,?,?,?)}");
+				cs = Main.getDcs().getConnection().prepareCall("{call [PillSite].[dbo].addprescription(?,?,?,?,?,?)}");
 				cs.setInt(1, Main.getID());
-				cs.setString(2, SerialNumber);
-				cs.setString(3,  number);
+				Random r = new Random();
+				cs.setInt(2, Main.getID() + Integer.parseInt(patient) + r.nextInt(100));
+				cs.setString(3,  patient);
 				cs.setString(4, dosage);
-				cs.setInt(5, 0);
-				cs.setString(6,  TimePD);
+				cs.setString(5, TimePD);
+				cs.setString(6,  SerialNumber);
 				cs.execute();
 				JOptionPane.showMessageDialog(null, "Added Complete");
 				storyStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -184,16 +269,18 @@ import pillsite.DatabaseConnectionService;
 				String number = Number.getText();
 				String dosage = Dosage.getText();
 				String TimePD = TPD.getText();
+				String patient = PatientID.getText();
 
 
 				if(list.contains(SerialNumber) && isInteger(number) && isInteger(dosage) && isInteger(TimePD)) {
-					cs = Main.getDcs().getConnection().prepareCall("{call [PillSite].[dbo].addtake(?,?,?,?,?,?)}");
+					cs = Main.getDcs().getConnection().prepareCall("{call [PillSite].[dbo].addprescription(?,?,?,?,?,?)}");
 					cs.setInt(1, Main.getID());
-					cs.setString(2, SerialNumber);
-					cs.setString(3,  number);
+					Random r = new Random();
+					cs.setInt(2, Main.getID() + Integer.parseInt(patient) + r.nextInt(100));
+					cs.setString(3,  patient);
 					cs.setString(4, dosage);
-					cs.setInt(5, 0);
-					cs.setString(6,  TimePD);
+					cs.setString(5, TimePD);
+					cs.setString(6,  SerialNumber);
 					cs.execute();
 					JOptionPane.showMessageDialog(null, "Added Complete");
 					storyStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -211,6 +298,7 @@ import pillsite.DatabaseConnectionService;
 				JOptionPane.showMessageDialog(null, "Added Failed");
 				e.printStackTrace();
 			}
+
 
 		}
 		

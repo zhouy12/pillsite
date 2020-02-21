@@ -30,6 +30,7 @@ import pillsite.controller.model.maps.Prescriptions;
 import pillsite.controller.model.maps.Patients;
 
 public class DoctorMainMenu implements Initializable{
+	Stage storyStage;
 	 	@FXML private TableView<Pills> DocPills;
 	    @FXML private TableColumn<Pills, String> DocPillName;
 	    @FXML private TableColumn<Pills, String> PillID;
@@ -346,24 +347,28 @@ public class DoctorMainMenu implements Initializable{
 		
 		@FXML
 		public void handleAddNewButton(ActionEvent event) throws Exception {
+			storyStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+			Node node=(Node) event.getSource();
+			Stage stage=(Stage) node.getScene().getWindow();
+			Parent root = FXMLLoader.load(getClass().getResource("AddPrescription.fxml"));
+			Scene scene = new Scene(root);
+			stage.setScene(scene);
+			stage.show();
 		}
 	 
 		@FXML
 		public void handleAddNewOnKeyPressed(KeyEvent event) throws IOException {
 			if (event.getCode() == KeyCode.ENTER) {
+				storyStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+				Node node=(Node) event.getSource();
+				Stage stage=(Stage) node.getScene().getWindow();
+				Parent root = FXMLLoader.load(getClass().getResource("AddPrescription.fxml"));
+				Scene scene = new Scene(root);
+				stage.setScene(scene);
+				stage.show();
 			}
 			
 		}
-		
-		@FXML
-		public void handleAccountButton(ActionEvent event) throws Exception {
-		}
-	 
-		@FXML
-		public void handleAccountOnKeyPressed(KeyEvent event) throws IOException {
-			if (event.getCode() == KeyCode.ENTER) {
-			}
-			
-		}
+
 
 }

@@ -16,6 +16,8 @@ import java.sql.CallableStatement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Optional;
 
 import javax.swing.JOptionPane;
@@ -68,7 +70,22 @@ import pillsite.DatabaseConnectionService;
 			System.out.println(Password.getText());
 			Node node=(Node) event.getSource();
 			Stage stage=(Stage) node.getScene().getWindow();
-			Parent root = FXMLLoader.load(getClass().getResource("MainMenu.fxml"));
+		    Statement stmt = null;	
+		    ArrayList<String> id = new ArrayList<>();
+		    String query = "SELECT ID FROM [PillSite].[dbo].[Doctor] WHERE ID = " + Main.getID();
+		    stmt = Main.getDcs().getConnection().createStatement();
+		    ResultSet rs = stmt.executeQuery(query);
+		    while (rs.next()) {
+		        String name = rs.getString("ID");
+		        id.add(name);
+		    }
+			Parent root = null;
+			if(id.isEmpty()) {
+				root = FXMLLoader.load(getClass().getResource("MainMenu.fxml"));
+			}
+			else {
+				root = FXMLLoader.load(getClass().getResource("DoctorMainMenu.fxml"));
+			}
 			Scene scene = new Scene(root);
 			stage.setScene(scene);
 			stage.show();

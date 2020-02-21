@@ -29,6 +29,7 @@ import pillsite.controller.model.maps.Pills;
 import pillsite.controller.model.maps.YourPills;
 
 public class MainMenu implements Initializable{
+	Stage storyStage;
 	 	@FXML private TableView<Pills> tableView;
 	    @FXML private TableColumn<Pills, String> Pill;
 	    @FXML private TableColumn<Pills, String> Id;
@@ -428,11 +429,25 @@ public class MainMenu implements Initializable{
 		
 		@FXML
 		public void handleAddNewButton(ActionEvent event) throws Exception {
+			storyStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+			Node node=(Node) event.getSource();
+			Stage stage=(Stage) node.getScene().getWindow();
+			Parent root = FXMLLoader.load(getClass().getResource("AddNew.fxml"));
+			Scene scene = new Scene(root);
+			stage.setScene(scene);
+			stage.show();
 		}
 	 
 		@FXML
 		public void handleAddNewOnKeyPressed(KeyEvent event) throws IOException {
 			if (event.getCode() == KeyCode.ENTER) {
+				storyStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+				Node node=(Node) event.getSource();
+				Stage stage=(Stage) node.getScene().getWindow();
+				Parent root = FXMLLoader.load(getClass().getResource("AddNew.fxml"));
+				Scene scene = new Scene(root);
+				stage.setScene(scene);
+				stage.show();
 			}
 			
 		}

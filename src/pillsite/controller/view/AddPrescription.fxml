@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1000.0" style="-fx-background-color: #faf4e3" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pillsite.controller.view.AddNew">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1000.0" style="-fx-background-color: #faf4e3" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pillsite.controller.view.AddPrescription">
    <children>
       <Text layoutX="531.0" layoutY="184.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Serial Number:" wrappingWidth="145.13671875">
          <font>
@@ -28,17 +28,17 @@
          </font>
       </Text>
       <TextField fx:id="TPD" layoutX="679.0" layoutY="284.0" prefHeight="25.0" prefWidth="176.0" />
-      <Text layoutX="305.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add New Pill" textAlignment="CENTER" wrappingWidth="331.13671875">
+      <Text layoutX="297.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Prescription" textAlignment="CENTER" wrappingWidth="406.13671875">
          <font>
             <Font size="50.0" />
          </font>
       </Text>
-      <Button layoutX="388.0" layoutY="401.0" mnemonicParsing="false" onAction="#handleFinishButton" onKeyPressed="#handleFinishOnKeyPressed" prefHeight="37.0" prefWidth="224.0" text="Finish">
+      <Button layoutX="388.0" layoutY="527.0" mnemonicParsing="false" onAction="#handleFinishButton" onKeyPressed="#handleFinishOnKeyPressed" prefHeight="37.0" prefWidth="224.0" text="Finish">
          <font>
             <Font name="Georgia" size="20.0" />
          </font>
       </Button>
-      <Button layoutX="388.0" layoutY="462.0" mnemonicParsing="false" onAction="#handleGobackButton" onKeyPressed="#handleGobackKeyPressed" prefHeight="37.0" prefWidth="224.0" text="Go back">
+      <Button layoutX="388.0" layoutY="578.0" mnemonicParsing="false" onAction="#handleGobackButton" onKeyPressed="#handleGobackKeyPressed" prefHeight="37.0" prefWidth="224.0" text="Go back">
          <font>
             <Font name="Georgia" size="20.0" />
          </font>
@@ -49,16 +49,34 @@
          </font>
       </Text>
       <TextField fx:id="Number" layoutX="679.0" layoutY="204.0" prefHeight="25.0" prefWidth="176.0" />
-      <TableView fx:id="RefTable" layoutX="41.0" layoutY="200.0" prefHeight="131.0" prefWidth="427.0">
+      <TableView fx:id="RefTable" layoutX="31.0" layoutY="152.0" prefHeight="131.0" prefWidth="427.0">
         <columns>
           <TableColumn fx:id="PName" prefWidth="218.0" text="Pill Name" />
           <TableColumn fx:id="SerN" prefWidth="204.0" text="SerialNumber" />
         </columns>
       </TableView>
-      <Text layoutX="150.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reference Table" textAlignment="CENTER" wrappingWidth="209.13671875">
+      <Text layoutX="114.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pill Reference Table" textAlignment="CENTER" wrappingWidth="260.13671875">
          <font>
             <Font name="Georgia" size="25.0" />
          </font>
       </Text>
+      <TableView fx:id="PTable" layoutX="37.0" layoutY="354.0" prefHeight="131.0" prefWidth="427.0">
+         <columns>
+            <TableColumn fx:id="FName" prefWidth="121.0" text="First Name" />
+            <TableColumn fx:id="LName" prefWidth="133.0" text="Last Name" />
+            <TableColumn fx:id="ID" prefWidth="171.0" text="ID" />
+         </columns>
+      </TableView>
+      <Text layoutX="120.0" layoutY="349.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Patient Table" textAlignment="CENTER" wrappingWidth="260.13671875">
+         <font>
+            <Font name="Georgia" size="25.0" />
+         </font>
+      </Text>
+      <Text layoutX="572.0" layoutY="347.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Patient ID:" wrappingWidth="103.936767578125">
+         <font>
+            <Font name="Georgia" size="20.0" />
+         </font>
+      </Text>
+      <TextField fx:id="PatientID" layoutX="679.0" layoutY="328.0" prefHeight="25.0" prefWidth="176.0" />
    </children>
 </AnchorPane>

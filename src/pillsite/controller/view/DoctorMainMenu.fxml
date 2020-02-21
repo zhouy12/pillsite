@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
@@ -13,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1000.0" style="-fx-background-color: #faf4e3" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pillsite.controller.view.MainMenu">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1000.0" style="-fx-background-color: #faf4e3" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pillsite.controller.view.DoctorMainMenu">
    <children>
       <TabPane prefHeight="650.0" prefWidth="1000.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
@@ -26,7 +22,6 @@
                               <Font name="Georgia" size="51.0" />
                            </font>
                         </Text>
-                        <Button fx:id="Account" layoutX="875.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleAccountButton" onKeyPressed="#handleAccountOnKeyPressed" prefHeight="22.0" prefWidth="111.0" text="Your Account" />
                      </children>
                   </AnchorPane>
                </content>
@@ -35,7 +30,7 @@
             <content>
               <AnchorPane fx:id="PillView" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TableView fx:id="YourPills" layoutX="14.0" layoutY="14.0" prefHeight="588.0" prefWidth="846.0">
+                        <TableView fx:id="DocPills" layoutX="14.0" layoutY="14.0" prefHeight="588.0" prefWidth="846.0">
                           <columns>
                             <TableColumn fx:id="DocPillName" prefWidth="254.0" text="Pill Name" />
                               <TableColumn fx:id="PillID" prefWidth="316.0" text="Pill ID" />
@@ -51,13 +46,13 @@
             <content>
               <AnchorPane fx:id="PatientsView" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TableView fx:id="tableView" layoutX="378.0" layoutY="58.0" prefHeight="495.0" prefWidth="591.0">
+                        <TableView fx:id="yourName" layoutX="378.0" layoutY="58.0" prefHeight="495.0" prefWidth="591.0">
                            <columns>
                               <TableColumn fx:id="yourFN" prefWidth="294.0" text="First Name" />
                               <TableColumn fx:id="yourLN" prefWidth="294.0" text="Last Name" />
                            </columns>
                         </TableView>
-                        <TableView layoutX="23.0" layoutY="58.0" prefHeight="495.0" prefWidth="338.0">
+                        <TableView fx:id="allName" layoutX="23.0" layoutY="58.0" prefHeight="495.0" prefWidth="338.0">
                           <columns>
                             <TableColumn fx:id="allFN" prefWidth="165.0" text="First Name" />
                             <TableColumn fx:id="allLN" prefWidth="154.0" text="Last Name" />
@@ -73,7 +68,6 @@
                               <Font name="System Italic" size="21.0" />
                            </font>
                         </Text>
-                        <Button layoutX="667.0" layoutY="566.0" mnemonicParsing="false" text="Add New" />
                      </children>
                   </AnchorPane>
             </content>
@@ -82,7 +76,7 @@
             <content>
               <AnchorPane fx:id="PrescriptionsView" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TableView fx:id="YourPills1" layoutX="70.0" layoutY="43.0" prefHeight="489.0" prefWidth="798.0">
+                        <TableView fx:id="DoctorPre" layoutX="70.0" layoutY="43.0" prefHeight="489.0" prefWidth="798.0">
                            <columns>
                               <TableColumn fx:id="PatientUser" prefWidth="171.0" text="Patient" />
                               <TableColumn fx:id="PrePill" prefWidth="238.0" text="Pill" />
@@ -90,7 +84,7 @@
                               <TableColumn fx:id="PreTPD" prefWidth="252.0" text="TPD" />
                            </columns>
                         </TableView>
-                        <Button layoutX="895.0" layoutY="290.0" mnemonicParsing="false" text="Add New">
+                        <Button fx:id="addNew" layoutX="895.0" layoutY="290.0" mnemonicParsing="false" onAction="#handleAddNewButton" onKeyPressed="#handleAddNewOnKeyPressed" text="Add New">
                            <font>
                               <Font size="16.0" />
                            </font>
